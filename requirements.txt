@@ -2,3 +2,4 @@ pycaret==2.3.2
 seaborn==0.9.0
 streamlit==1.6.0
 evidently
+evidently.report
