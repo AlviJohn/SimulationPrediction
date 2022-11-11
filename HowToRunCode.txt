@@ -1,0 +1,17 @@
+
+1.Keep all the files in a local folder
+
+2.Open Anaconda command prompt and type in your drive name and navigate to the folder location
+Commands(Example)
+a)E:
+b)cd "E:\Projects\Dimension Optimization Model"
+
+
+Make sure the depenencies are installed(needs to be done only once)
+Command: pip install -r requirements.txt
+
+
+3.Make Sure the file(Full_Data.xls) is kept in the directory and start streamlit server in anaconda
+Command:python -m streamlit run PredictionFunction_OD_SW_FP.py
+
+

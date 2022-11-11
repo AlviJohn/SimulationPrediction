@@ -1,0 +1,2 @@
+docker build . -t dimension_optimization-docker -f Dockerfile.txt
+docker run -p 8501:8501 dimension_optimization:latest
