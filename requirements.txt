@@ -3,4 +3,3 @@ Pillow==9.0.1
 pycaret
 seaborn==0.9.0
 evidently
-evidently.report
