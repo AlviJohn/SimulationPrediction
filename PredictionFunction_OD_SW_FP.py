@@ -82,12 +82,12 @@ if st.button('Please click this button for Prediction'):
 	features_df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
 	features_df['SW Inflation']=200
 	features_df['load'] = 300
-	FP_width_value = float(round(predict_model(Footprint_width, features_df),2).Label)
+	#FP_width_value = float(round(predict_model(Footprint_width, features_df),2).Label)
 	FP_length_value = float(round(predict_model(Footprint_length, features_df),2).Label)
 	FP_length80_value = float(round(predict_model(Footprint_length80, features_df),2).Label)
 	st.write(' SW Inflation Prediction -->',float(round(features_df['SW Inflation'],2)) )
 	st.write(' OD Inflation Prediction -->',float(round(features_df['OD Inflation'],2)))
-	st.write(' FP Width Prediction -->',FP_width_value)
+	#st.write(' FP Width Prediction -->',FP_width_value)
 	st.write(' FP Length Prediction -->',FP_length_value)
 	st.write(' FP Length 80 Prediction -->',FP_length80_value)
 
