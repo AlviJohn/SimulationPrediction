@@ -45,7 +45,7 @@ with st.expander('Update the Data For Prediction'):
 
 	if uploaded_file is not None:
 	    # Can be used wherever a "file-like" object is accepted:
-	    features_df = pd.read_excel(open('Input Data Template.xlsx', 'rb'),sheet_name='Template') 
+	    features_df = pd.read_excel(uploaded_file,sheet_name='Template') 
 	    features_df['CuringRim_Width_Difference'] =  abs(features_df['Curing Width_UDMSIteration']) - abs(features_df['Rim Width_UDMSIteration'])
 	    features_df['Belt_Angle_Difference'] =  abs(features_df['RBELT1_cured_angle']) - abs(features_df['RBELT2_cured_angle'])
 	    features_df['Belt_Width_Difference'] =  features_df['Belt Width 1'] - features_df['Belt Width 2']
