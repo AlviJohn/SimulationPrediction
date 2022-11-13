@@ -75,17 +75,17 @@ if uploaded_file is not None:
 
 
 if st.button('Please click this button for Prediction'):
-	#SW_value = float(round(predict_model(model_SW, features_df),2).Label)
+	SW_value = float(round(predict_model(model_SW, features_df),2).Label)
 	OD_value = float(round(predict_model(model_OD, features_df),2).Label)
 	
 	features_df['OD Inflation'] = OD_value + features_df['Cavity Outer Diameter']
-	#features_df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
+	features_df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
 	features_df['SW Inflation']=200
-	#features_df['load'] = 300
+	features_df['load'] = 300
 	FP_width_value = float(round(predict_model(Footprint_width, features_df),2).Label)
 	FP_length_value = float(round(predict_model(Footprint_length, features_df),2).Label)
 	FP_length80_value = float(round(predict_model(Footprint_length80, features_df),2).Label)
-	#st.write(' SW Inflation Prediction -->',float(round(features_df['SW Inflation'],2)) )
+	st.write(' SW Inflation Prediction -->',float(round(features_df['SW Inflation'],2)) )
 	st.write(' OD Inflation Prediction -->',float(round(features_df['OD Inflation'],2)))
 	st.write(' FP Width Prediction -->',FP_width_value)
 	st.write(' FP Length Prediction -->',FP_length_value)
