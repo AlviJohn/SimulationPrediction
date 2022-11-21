@@ -116,7 +116,7 @@ if uploaded_file is not None:
 	    df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
 	    df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
 	    df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
-	    df['FP_Index'] = round(df['Footprint_length80']/df['Footprint_length'],2)
+	    df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2)
 		
 		
 	    st.write(df)
