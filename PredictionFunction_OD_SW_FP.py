@@ -12,6 +12,15 @@ st.set_page_config(page_title="Simulation Prediction Engine", page_icon="musclem
 st.title('SW,OD and Footprint Models')
 st.write('This application predicts SW Inflation, OD Inflation, and Footprint values based on tyre parameters.Please upload the input data template')
 
+
+hide_default_format = """
+       <style>
+       #MainMenu {visibility: hidden; }
+       footer {visibility: hidden;}
+       </style>
+       """
+st.markdown(hide_default_format, unsafe_allow_html=True)
+
 #####
 
 
