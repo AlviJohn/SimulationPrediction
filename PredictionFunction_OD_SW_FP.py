@@ -12,6 +12,8 @@ st.set_page_config(page_title="Simulation Prediction Engine", page_icon="musclem
 st.title('SW,OD and Footprint Models')
 st.write('This application predicts SW Inflation, OD Inflation, and Footprint values based on tyre parameters.\n Please upload the input data template for prediction')
 
+image = Image.open('Tireimage.png')
+st.sidebar.image(image)
 
 hide_default_format = """
        <style>
@@ -92,7 +94,7 @@ if uploaded_file is not None:
 
 	
 	st.subheader('Please Select')
-	col1, col2, col3 = st.columns(3)
+	col1, col2, col3 = st.sidebar(3)
 
 	with col1:
 		features_df['inflation']= st.slider('Inflation', 180, 420, 210)
@@ -107,7 +109,7 @@ if st.button('Please Click for Prediction'):
     SW_value=round(predict_model(model_SW, features_df),2).Label
     OD_value = round(predict_model(model_OD, features_df),2).Label
     df['OD Inflation'] = OD_value + features_df['Cavity Outer Diameter']
-    df['SW Inflation'] = 10 + features_df['Cavity Section Width']
+    df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
     features_df['OD Inflation']=df['OD Inflation']
     features_df['SW Inflation']=df['SW Inflation']
     
@@ -119,8 +121,7 @@ if st.button('Please Click for Prediction'):
     st.write(df)
 
 
-image = Image.open('Tireimage.png')
-st.sidebar.image(image)
+
 
     
 st.sidebar.write('Please note that model predictions might not be accurate for data outside the training dataset ranges')
