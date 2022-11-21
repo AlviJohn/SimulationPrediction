@@ -41,7 +41,7 @@ with st.expander('Update the Data For Prediction'):
 
 	if uploaded_file is not None:
 	    # Can be used wherever a "file-like" object is accepted:
-	    features_df = pd.read_excel(open('Input Data Template_V1.xlsx', 'rb'),sheet_name='Template')
+	    features_df = pd.read_excel(uploaded_file,sheet_name='Template')
 	    features_df = features_df.dropna(axis=1, how='all')
 	    features_df= features_df.transpose()
 	    features_df.columns = features_df.iloc[0]
