@@ -91,7 +91,7 @@ if uploaded_file is not None:
 
 
 	
-	st.caption('Please Select')
+	st.subheader('Please Select')
 	col1, col2, col3 = st.columns(3)
 
 	with col1:
