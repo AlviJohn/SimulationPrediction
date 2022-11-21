@@ -94,7 +94,7 @@ if uploaded_file is not None:
 
 	
 	st.subheader('Please Select')
-	col1, col2, col3 = st.sidebar(3)
+	col1, col2, col3 = st.sidebar.columns(3)
 
 	with col1:
 		features_df['inflation']= st.slider('Inflation', 180, 420, 210)
