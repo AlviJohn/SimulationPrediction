@@ -119,7 +119,7 @@ if st.button('Please Click for Prediction'):
     st.write(df)
 
 
-image = Image.open('muscle_man2.png')
+image = Image.open('Tireimage.png')
 st.sidebar.image(image)
 
 
