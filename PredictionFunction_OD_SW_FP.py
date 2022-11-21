@@ -10,7 +10,7 @@ import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Simulation Prediction Engine", page_icon="muscleman.jpg", layout="wide", initial_sidebar_state="auto")
 st.title('SW,OD and Footprint Models')
-st.write('This application predicts SW Inflation, OD Inflation, and Footprint values based on tyre parameters.Please upload the input data template')
+st.write('This application predicts SW Inflation, OD Inflation, and Footprint values based on tyre parameters.\n Please upload the input data template for prediction')
 
 
 hide_default_format = """
@@ -122,6 +122,5 @@ if st.button('Please Click for Prediction'):
 image = Image.open('Tireimage.png')
 st.sidebar.image(image)
 
-
-st.sidebar.write('Please upload the template data for prediction.\n\n' )              
+    
 st.sidebar.write('Please note that model predictions might not be accurate for data outside the training dataset ranges')
