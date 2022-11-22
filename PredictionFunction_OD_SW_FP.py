@@ -100,53 +100,50 @@ if uploaded_file is not None:
 		features_df['inflation']= st.slider('Inflation', 180, 420, 210)
 
 	with col3:
-		features_df['load']= st.slider('Load', 100,870,420)    
+		features_df['load']= st.slider('Load', 100,870,420)   
 
-	if st.button('Please Click for Prediction'):
-	    df= pd.DataFrame()
+if st.button('Please Click for Prediction'):
 	
-	    try:
-	    	SW_value=round(predict_model(model_SW, features_df),2).Label
-		df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
-		features_df['SW Inflation']=df['SW Inflation']
-	    except:
-	    	st.write("Section Width Model Failed")
+
+    df= pd.DataFrame()
+    try:
+    	SW_value=round(predict_model(model_SW, features_df),2).Label
+    	df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
+    	features_df['SW Inflation']=df['SW Inflation']
+	except:
+		st.write("Section Width Model Failed")
 		features_df['SW Inflation'] = features_df['Cavity Section Width']
 
-	    try:
+	try:
 		OD_value = round(predict_model(model_OD, features_df),2).Label
 		df['OD Inflation'] = features_df['Cavity Outer Diameter'] + OD_value
 		features_df['OD Inflation']=df['OD Inflation']
-	    except:
-	    	st.write("OD Model Failed")
-		features_df[''OD Inflation'] = features_df['Cavity Outer Diameter']
-	         
+	except:
+		st.write("OD Model Failed")
+		features_df['OD Inflation'] = features_df['Cavity Outer Diameter']
 
-            try:
-		df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
-	    except:
-	    	st.write("FP Width Model Failed")
+    try:
+    	df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
+    except:
+    	st.write("FP Width Model Failed")
 
-            try:
-		df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
-	    except:
-	    	st.write("FP Length Model Failed")
+    try:
+    	df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
+	except:
+		st.write("FP Length Model Failed")
 			    
-            try:
-		df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
-	    except:
-	    	st.write("FP Length 80 Model Failed")
+    try:
+    	df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
+    except:
+    	st.write("FP Length 80 Model Failed")
 			    
-            try:
-		df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2
-	    except:
-	    	st.write("FP Index Calculation Failed")
+    try:
+    	df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2).Label
+    except:
+    	st.write("FP Index Calculation Failed")
 			    
-		
-	    st.write(df)
 
 
-
-
-    
 st.sidebar.write('Please note that model predictions might not be accurate for data outside the training dataset ranges')
+
+
