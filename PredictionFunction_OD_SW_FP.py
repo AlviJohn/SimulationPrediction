@@ -298,5 +298,5 @@ if st.button('Please Click for Prediction'):
 			    
 
 
-st.sidebar.write('Please note that model predictions might not be accurate for data outside the training dataset ranges')
+st.sidebar.write('Please note that model predictions might not be accurate for data outside the training dataset ranges!')
 
