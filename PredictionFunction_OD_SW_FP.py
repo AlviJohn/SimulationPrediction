@@ -102,7 +102,7 @@ if uploaded_file is not None:
 	with col3:
 		features_df['load']= st.slider('Load', 100,870,420)   
 
-if st.button('Please Click for Prediction'):
+if st.button('Please Click for Prediction -'):
 	
 
     df= pd.DataFrame()
