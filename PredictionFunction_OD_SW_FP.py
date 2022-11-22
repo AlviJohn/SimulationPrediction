@@ -110,27 +110,27 @@ if st.button('Please Click for Prediction'):
     	SW_value=round(predict_model(model_SW, features_df),2).Label
     	df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
     	features_df['SW Inflation']=df['SW Inflation']
-	except:
-		st.write("Section Width Model Failed")
-		features_df['SW Inflation'] = features_df['Cavity Section Width']
-
-	try:
-		OD_value = round(predict_model(model_OD, features_df),2).Label
-		df['OD Inflation'] = features_df['Cavity Outer Diameter'] + OD_value
-		features_df['OD Inflation']=df['OD Inflation']
-	except:
-		st.write("OD Model Failed")
-		features_df['OD Inflation'] = features_df['Cavity Outer Diameter']
-
-    try:
-    	df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
     except:
-    	st.write("FP Width Model Failed")
+	st.write("Section Width Model Failed")
+	features_df['SW Inflation'] = features_df['Cavity Section Width']
 
     try:
-    	df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
-	except:
-		st.write("FP Length Model Failed")
+	OD_value = round(predict_model(model_OD, features_df),2).Label
+	df['OD Inflation'] = features_df['Cavity Outer Diameter'] + OD_value
+	features_df['OD Inflation']=df['OD Inflation']
+    except:
+	st.write("OD Model Failed")
+	features_df['OD Inflation'] = features_df['Cavity Outer Diameter']
+
+    try:
+	df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
+    except:
+	st.write("FP Width Model Failed")
+
+    try:
+	df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
+    except:
+	st.write("FP Length Model Failed")
 			    
     try:
     	df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
@@ -141,6 +141,9 @@ if st.button('Please Click for Prediction'):
     	df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2).Label
     except:
     	st.write("FP Index Calculation Failed")
+	
+	
+    st.write(df)
 			    
 
 
