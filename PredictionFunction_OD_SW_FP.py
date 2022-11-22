@@ -119,7 +119,7 @@ if st.button('Please Click for Prediction'):
 	df['OD Inflation'] = features_df['Cavity Outer Diameter'] + OD_value
 	features_df['OD Inflation']=df['OD Inflation']
     except:
-	st.write("OD Model Failed")
+	st.write("OD Model Failed, Please Check")
 	features_df['OD Inflation'] = features_df['Cavity Outer Diameter']
 
     try:
