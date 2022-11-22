@@ -112,7 +112,7 @@ if uploaded_file is not None:
 			st.write("Section Width Model Failed")
 			features_df['SW Inflation'] = features_df['Cavity Section Width']
 		try:
-			OD_value = round(predict_model(model_OD, features_df),2).Label\
+			OD_value = round(predict_model(model_OD, features_df),2).Label
 			df['OD Inflation'] = features_df['Cavity Outer Diameter'] + OD_value
 			features_df['OD Inflation']=df['OD Inflation']
 		except:
