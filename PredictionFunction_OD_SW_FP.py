@@ -105,8 +105,8 @@ if uploaded_file is not None:
 	if st.button('Please Click for Prediction'):
 	    df= pd.DataFrame()
 	    SW_value=round(predict_model(model_SW, features_df),2).Label
-	    OD_value = round(predict_model(model_OD, features_df),2).Label
-	    df['OD Inflation'] = OD_value + features_df['Cavity Outer Diameter']
+	    #OD_value = round(predict_model(model_OD, features_df),2).Label
+	    df['OD Inflation'] = OD_value 
 	    df['SW Inflation'] = SW_value + features_df['Cavity Section Width']
 	    features_df['OD Inflation']=df['OD Inflation']
 	    features_df['SW Inflation']=df['SW Inflation']
