@@ -64,7 +64,8 @@ with st.expander('Update the Data For Prediction'):
 	    features_df["Aspect_ratio"] =features_df["size"].str.split("/").str[-1].str.extract('(\d+)').astype(int)
 	    cols=[i for i in features_df.columns if i not in ["construction"]]
 	    for col in cols:
-		features_df[col]=pd.to_numeric(features_df[col])
+	    	features_df[col]=pd.to_numeric(features_df[col])
+
 	    st.write('The data you selected is')
 	    st.write(features_df)
 	    st.write('Data also contains dervived variables from data. Please scroll to the right to view')
