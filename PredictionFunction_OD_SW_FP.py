@@ -62,7 +62,7 @@ with st.expander('Update the Data For Prediction'):
 	    features_df['Belt_Width_Difference'] =  features_df['Belt Width 1'] - features_df['Belt Width 2']
 	    features_df['Section Ratio'] =  features_df['Section Height']/features_df['Cavity Section Width']
 	    features_df["Aspect_ratio"] =features_df["size"].str.split("/").str[-1].str.extract('(\d+)').astype(int)
-	    cols=[i for i in features_df.columns if i not in ["construction"]]
+	    cols=[i for i in features_df.columns if i not in ["construction","size"]]
 	    for col in cols:
 	    	features_df[col]=pd.to_numeric(features_df[col])
 
