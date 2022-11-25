@@ -30,7 +30,7 @@ st.markdown(hide_default_format, unsafe_allow_html=True)
 @st.cache(suppress_st_warning=True,allow_output_mutation=True)
 def loadmodel():
     model_SW = load_model('Final_SW_Model')
-    model_OD = load_model('Final_OD_Model')
+    model_OD = load_model('Final_OD_Model_V1')
     Footprint_width = load_model('Footprint_width_final')
     Footprint_length = load_model('Footprint_length_final')
     Footprint_length80 = load_model('Footprint_length80_final') 
