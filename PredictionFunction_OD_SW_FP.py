@@ -121,6 +121,7 @@ if uploaded_file is not None:
 			features_df['OD Inflation']=df['OD Inflation']
 		except:
 			st.write("Error!-OD Model Failed")
+			OD_value = round(predict_model(model_OD, features_df),2).Label
 			st.write(features_df.dtypes)
 			features_df['OD Inflation'] = features_df['Cavity Outer Diameter']
 		try:
