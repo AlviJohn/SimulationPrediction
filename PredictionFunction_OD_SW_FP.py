@@ -125,6 +125,7 @@ if uploaded_file is not None:
 		try:
 			df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
 		except:
+			df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
 			st.write("Error!-FP Width Model Failed")
 		
 		try:
