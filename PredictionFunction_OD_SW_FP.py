@@ -68,7 +68,7 @@ with st.expander('Update the Data For Prediction'):
 	    features_df["Aspect_ratio"] =features_df["size"].str.split("/").str[-1].str.extract('(\d+)').astype(int)
 	    Load_Index_mapping = pd.read_csv('Load_Index_mapping.csv')
 	    features_df= features_df.merge(Load_Index_mapping,on='Load_Index') 
-	    features_df['Load_index_ratio'] = features_df['load']/features_df['Load_index_kg']
+	    
 
 
 	    cols=[i for i in features_df.columns if i not in ["construction","size"]]
@@ -113,7 +113,8 @@ if uploaded_file is not None:
 		features_df['inflation']= st.slider('Inflation', 180, 420, 210)
 
 	with col3:
-		features_df['load']= st.slider('Load', 100,870,420)   
+		features_df['load']= st.slider('Load', 100,870,420)
+		features_df['Load_index_ratio'] = features_df['load']/features_df['Load_index_kg']
 
 	if st.button('Please Click for Prediction -'):
 		df= pd.DataFrame()
