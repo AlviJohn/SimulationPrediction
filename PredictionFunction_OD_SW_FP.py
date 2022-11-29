@@ -39,9 +39,9 @@ def loadmodel():
     Footprint_length_RF = load_model('Footprint_length_final_RF')
     Footprint_length80_RF = load_model('Footprint_length80_final_RF')  
    
-    return model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80
+    return model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80,Footprint_width_RF,Footprint_length_RF,Footprint_length80_RF
 
-model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80 =  loadmodel()
+model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80,Footprint_width_RF,Footprint_length_RF,Footprint_length80_RF =  loadmodel()
 
 Rawdata = pd.read_csv('RawData1.csv')
 ##Correction In Belt_Angle Difference
