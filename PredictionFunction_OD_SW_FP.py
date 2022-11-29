@@ -149,12 +149,12 @@ if uploaded_file is not None:
 		try:
 			df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
 		except:
-			df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
 			st.write("Error!-FP Length 80 Model Failed")
 
 		try:
 			df['FP_length80 RF'] = round(predict_model(Footprint_length80_RF, features_df),2).Label
 		except:
+			df['FP_length80 RF'] = round(predict_model(Footprint_length80_RF, features_df),2).Label
 			st.write("Error!-FP Length 80 Model Failed")
 
 		try:
