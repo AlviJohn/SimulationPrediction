@@ -33,7 +33,11 @@ def loadmodel():
     model_OD = load_model('Final_OD_Model_V1')
     Footprint_width = load_model('Footprint_width_final_V1')
     Footprint_length = load_model('Footprint_length_final')
-    Footprint_length80 = load_model('Footprint_length80_final') 
+    Footprint_length80 = load_model('Footprint_length80_final')
+    
+    Footprint_width_RF = load_model('Footprint_width_final_RF')
+    Footprint_length_RF = load_model('Footprint_length_final_RF')
+    Footprint_length80_RF = load_model('Footprint_length80_final_RF')  
    
     return model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80
 
@@ -127,15 +131,31 @@ if uploaded_file is not None:
 			st.write("Error!-FP Width Model Failed")
 		
 		try:
+			df['FP width RF'] = round(predict_model(Footprint_width_RF, features_df),2).Label
+		except:
+			st.write("Error!-FP Width Model Failed")
+
+
+		try:
 			df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
 		except:
 			st.write("Error!-FP Length Model Failed")
 		
 		try:
+			df['FP_length RF']= round(predict_model(Footprint_length_RF, features_df),2).Label
+		except:
+			st.write("Error!-FP Length Model Failed")
+
+		try:
 			df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
 		except:
 			st.write("Error!-FP Length 80 Model Failed")
-		
+
+		try:
+			df['FP_length80 RF'] = round(predict_model(Footprint_length80_RF, features_df),2).Label
+		except:
+			st.write("Error!-FP Length 80 Model Failed")
+
 		try:
 			df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2)
 		except:
