@@ -114,7 +114,7 @@ if uploaded_file is not None:
 
 	with col3:
 		features_df['load']= st.slider('Load', 100,870,420)
-		features_df['Load_index_ratio'] = features_df['load']/features_df['Load_index_kg']
+		features_df['Load_index_ratio'] = features_df['load']/features_df['Load_kg']
 
 	if st.button('Please Click for Prediction -'):
 		df= pd.DataFrame()
