@@ -67,7 +67,7 @@ with st.expander('Update the Data For Prediction'):
 	    features_df['Section Ratio'] =  features_df['Section Height']/features_df['Cavity Section Width']
 	    features_df["Aspect_ratio"] =features_df["size"].str.split("/").str[-1].str.extract('(\d+)').astype(int)
 	    Load_Index_mapping = pd.read_csv('Load_Index_mapping.csv')
-	    features_df= features_df.merge(UDMSIteration_ht,on='Load_Index') 
+	    features_df= features_df.merge(Load_Index_mapping,on='Load_Index') 
 	    features_df['Load_index_ratio'] = features_df['load']/features_df['Load_index_kg']
 
 
