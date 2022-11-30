@@ -163,7 +163,7 @@ if uploaded_file is not None:
 			st.write("Error!-FP Length 80 Model Failed")
 
 		try:
-			df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2)
+			df['FP_Index'] = round(df['FP_length80 RF']/df['FP_length RF'],2)
 		except:
 			st.write("Error!-FP Index Calculation Failed")
 		
