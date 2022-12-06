@@ -35,9 +35,9 @@ def loadmodel():
     Footprint_length = load_model('Footprint_length_final')
     Footprint_length80 = load_model('Footprint_length80_final')
     
-    Footprint_width_RF = load_model('Footprint_width_final_RF')
-    Footprint_length_RF = load_model('Footprint_length_final_RF')
-    Footprint_length80_RF = load_model('Footprint_length80_final_RF')  
+    Footprint_width_RF = load_model('Footprint_width_final_RF_V3')
+    Footprint_length_RF = load_model('Footprint_length_final_RF_V3')
+    Footprint_length80_RF = load_model('Footprint_length80_final_RF_V3')  
    
     return model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80,Footprint_width_RF,Footprint_length_RF,Footprint_length80_RF
 
@@ -66,8 +66,8 @@ with st.expander('Update the Data For Prediction'):
 	    features_df['Belt_Width_Difference'] =  features_df['Belt Width 1'] - features_df['Belt Width 2']
 	    features_df['Section Ratio'] =  features_df['Section Height']/features_df['Cavity Section Width']
 	    features_df["Aspect_ratio"] =features_df["size"].str.split("/").str[-1].str.extract('(\d+)').astype(int)
-	    Load_Index_mapping = pd.read_csv('Load_Index_mapping.csv')
-	    features_df= features_df.merge(Load_Index_mapping,on='Load_Index') 
+	    # Load_Index_mapping = pd.read_csv('Load_Index_mapping.csv')
+	    # features_df= features_df.merge(Load_Index_mapping,on='Load_Index') 
 	    
 
 
@@ -131,30 +131,30 @@ if uploaded_file is not None:
 		except:
 			st.write("Error!-OD Model Failed")
 			
-		try:
-			df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
-		except:
-			st.write("Error!-FP Width Model Failed")
+		# try:
+		# 	df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
+		# except:
+		# 	st.write("Error!-FP Width Model Failed")
 		
 		try:
 			df['FP width RF'] = round(predict_model(Footprint_width_RF, features_df),2).Label
 		except:
 			st.write("Error!-FP Width Model Failed")
 
-		try:
-			df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
-		except:
-			st.write("Error!-FP Length Model Failed")
+		# try:
+		# 	df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
+		# except:
+		# 	st.write("Error!-FP Length Model Failed")
 		
 		try:
 			df['FP_length RF']= round(predict_model(Footprint_length_RF, features_df),2).Label
 		except:
 			st.write("Error!-FP Length Model Failed")
 
-		try:
-			df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
-		except:
-			st.write("Error!-FP Length 80 Model Failed")
+		# try:
+		# 	df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
+		# except:
+		# 	st.write("Error!-FP Length 80 Model Failed")
 
 		try:
 			df['FP_length80 RF'] = round(predict_model(Footprint_length80_RF, features_df),2).Label
