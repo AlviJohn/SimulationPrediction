@@ -66,11 +66,7 @@ with st.expander('Update the Data For Prediction'):
 	    features_df['Belt_Width_Difference'] =  features_df['Belt Width 1'] - features_df['Belt Width 2']
 	    features_df['Section Ratio'] =  features_df['Section Height']/features_df['Cavity Section Width']
 	    features_df["Aspect_ratio"] =features_df["size"].str.split("/").str[-1].str.extract('(\d+)').astype(int)
-	    features_df['load_inflation'] = features_df['load'] * features_df['inflation']
-	    features_df['load_belt_width1'] = features_df['load'] * features_df['Belt Width 1']
-	    features_df['load_load'] = features_df['load'] * features_df['load']
-	    features_df['load_SectionRatio'] = features_df['load'] * features_df['Section Ratio']
-	    features_df['load_SW'] = features_df['load'] * features_df['Cavity Section Width']
+
 	    # Load_Index_mapping = pd.read_csv('Load_Index_mapping.csv')
 	    # features_df= features_df.merge(Load_Index_mapping,on='Load_Index') 
 	    
@@ -119,6 +115,11 @@ if uploaded_file is not None:
 
 	with col3:
 		features_df['load']= st.slider('Load', 100,870,420)
+		features_df['load_inflation'] = features_df['load'] * features_df['inflation']
+	    features_df['load_belt_width1'] = features_df['load'] * features_df['Belt Width 1']
+	    features_df['load_load'] = features_df['load'] * features_df['load']
+	    features_df['load_SectionRatio'] = features_df['load'] * features_df['Section Ratio']
+	    features_df['load_SW'] = features_df['load'] * features_df['Cavity Section Width']
 		# features_df['Load_index_ratio'] = features_df['load']/features_df['Load_index_kg']
 
 	if st.button('Please Click for Prediction -'):
