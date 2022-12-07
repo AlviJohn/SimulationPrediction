@@ -157,6 +157,7 @@ if uploaded_file is not None:
 		
 		try:
 			df['FP_length']= round(predict_model(Footprint_length_RF, features_df),2).Label
+			features_df['FootprintLength']=df['FP_length']
 		except:
 			st.write("Error!-FP Length Model Failed")
 
