@@ -37,7 +37,7 @@ def loadmodel():
     
     Footprint_width_RF = load_model('Footprint_width_final_RF_V3')
     Footprint_length_RF = load_model('Footprint_length_final_LGB_V5')
-    Footprint_length80_RF = load_model('Footprint_length80_final_RF_V5')  
+    Footprint_length80_RF = load_model('Footprint_length80_final_LGB_V5')  
    
     return model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80,Footprint_width_RF,Footprint_length_RF,Footprint_length80_RF
 
