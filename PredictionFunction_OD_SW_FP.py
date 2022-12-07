@@ -37,7 +37,7 @@ def loadmodel():
     
     Footprint_width_RF = load_model('Footprint_width_final_RF_V3')
     Footprint_length_RF = load_model('Footprint_length_final_LGB_V4')
-    Footprint_length80_RF = load_model('Footprint_length80_final_LGB_V4')  
+    Footprint_length80_RF = load_model('Footprint_length80_final_RF_V3')  
    
     return model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80,Footprint_width_RF,Footprint_length_RF,Footprint_length80_RF
 
@@ -172,7 +172,7 @@ if uploaded_file is not None:
 			st.write("Error!-FP Length 80 Model Failed")
 
 		try:
-			df['FP_Index'] = round(df['FP_length80 RF']/df['FP_length RF'],2)
+			df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2)
 		except:
 			st.write("Error!-FP Index Calculation Failed")
 		
