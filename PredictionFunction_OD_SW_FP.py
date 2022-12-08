@@ -31,17 +31,16 @@ st.markdown(hide_default_format, unsafe_allow_html=True)
 def loadmodel():
     model_SW = load_model('Final_SW_Model')
     model_OD = load_model('Final_OD_Model_V1')
-    Footprint_width = load_model('Footprint_width_final_V1')
-    Footprint_length = load_model('Footprint_length_final')
-    Footprint_length80 = load_model('Footprint_length80_final')
+
     
     Footprint_width_RF = load_model('Footprint_width_final_RF_V3')
     Footprint_length_RF = load_model('Footprint_length_final_LGB_V4')
-    Footprint_length80_RF = load_model('Footprint_length80_final_LGB_V5')  
+    Footprint_length80_below225 = load_model('Footprint_length80_below225_V1')
+    Footprint_length80_above225 = load_model('Footprint_length80_above225_V1')  
    
-    return model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80,Footprint_width_RF,Footprint_length_RF,Footprint_length80_RF
+    return model_SW,model_OD,Footprint_width_RF,Footprint_length_RF,Footprint_length80_below225,Footprint_length80_above225
 
-model_SW,model_OD,Footprint_width, Footprint_length, Footprint_length80,Footprint_width_RF,Footprint_length_RF,Footprint_length80_RF =  loadmodel()
+model_SW,model_OD,Footprint_width_RF,Footprint_length_RF,Footprint_length80_below225,Footprint_length80_above225 =  loadmodel()
 
 Rawdata = pd.read_csv('RawData1.csv')
 ##Correction In Belt_Angle Difference
@@ -168,9 +167,13 @@ if uploaded_file is not None:
 		# 	st.write("Error!-FP Length 80 Model Failed")
 
 		try:
-			df['FP_length80'] = round(predict_model(Footprint_length80_RF, features_df),2).Label
+			df['FP_len80_below225'] = round(predict_model(Footprint_length80_below225, features_df),2).Label
+			df['FP_len80_above225'] = round(predict_model(Footprint_length80_above225, features_df),2).Label
+			df = df.assign(FP_Length_80= np.select(features_df['Cavity Section Width'] > 225, df['FP_len80_above225'],df['FP_len80_below225'] ))
+
+
+
 		except:
-			df['FP_length80'] = round(predict_model(Footprint_length80_RF, features_df),2).Label
 			st.write("Error!-FP Length 80 Model Failed")
 
 		try:
