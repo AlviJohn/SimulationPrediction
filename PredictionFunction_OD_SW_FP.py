@@ -173,6 +173,8 @@ if uploaded_file is not None:
 			df.loc[df['Cavity Section Width'] <= 225, 'FP_length80'] = df['FP_len80_below225']
 			df.loc[df['Cavity Section Width'] > 225, 'FP_length80'] = df['FP_len80_above225']
 
+			df= df.drop(['FP_len80_below225', 'FP_len80_above225','Cavity Section Width'], axis=1)
+
 			
 
 
