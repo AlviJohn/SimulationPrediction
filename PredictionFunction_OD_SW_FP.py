@@ -124,6 +124,7 @@ if uploaded_file is not None:
 		features_df['OD_OD'] = features_df['Cavity Outer Diameter'] * features_df['Cavity Outer Diameter']
 		features_df['Load_index_ratio'] = features_df['load']/features_df['Load_index_kg']
 		features_df['load_log'] = np.log(features_df['load'])
+		features_df['loadindex_SectionRatio'] = features_df['Load_index_ratio'] * features_df['Section Ratio']
 
 	if st.button('Please Click for Prediction -'):
 		df= pd.DataFrame()
