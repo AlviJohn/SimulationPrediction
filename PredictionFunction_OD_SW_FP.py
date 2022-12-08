@@ -182,7 +182,8 @@ if uploaded_file is not None:
 		try:
 			df['FP_Index']= round(predict_model(Footprint_Index, features_df),2).Label
 		except:
-			st.write("Error!-FP Length Model Failed")
+			df['FP_Index']= round(predict_model(Footprint_Index, features_df),2).Label
+			st.write("Error!-FP Index Model Failed")
 
 
 
