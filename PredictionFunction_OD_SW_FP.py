@@ -170,8 +170,10 @@ if uploaded_file is not None:
 			df['FP_len80_below225'] = round(predict_model(Footprint_length80_below225, features_df),2).Label
 			df['FP_len80_above225'] = round(predict_model(Footprint_length80_above225, features_df),2).Label
 			df['Cavity Section Width'] = features_df['Cavity Section Width']
-			df = df.assign(FP_length80= np.select(df['Cavity Section Width'] > 225, df['FP_len80_above225'],df['FP_len80_below225'] ))
+			df.loc[df['Cavity Section Width'] <= 225, 'FP_length80'] = df['FP_len80_below225']
+			df.loc[df['Cavity Section Width'] > 225, 'FP_length80'] = df['FP_len80_above225']
 
+			
 
 
 		except:
