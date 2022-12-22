@@ -44,11 +44,11 @@ def loadmodel():
 
 model_SW,model_OD,Footprint_width_RF,Footprint_length_RF,Footprint_length80,Footprint_Index =  loadmodel()
 
-Rawdata = pd.read_csv('RawData1.csv')
+#Rawdata = pd.read_csv('RawData1.csv')
 ##Correction In Belt_Angle Difference
-Rawdata['Belt_Angle_Difference'] =  abs(Rawdata['RBELT1_cured_angle']) - abs(Rawdata['RBELT2_cured_angle'])
+#Rawdata['Belt_Angle_Difference'] =  abs(Rawdata['RBELT1_cured_angle']) - abs(Rawdata['RBELT2_cured_angle'])
 ##Correction In Belt_Angle Difference
-Rawdata['CuringRim_Width_Difference'] =  abs(Rawdata['Curing Width_UDMSIteration']) - abs(Rawdata['Rim Width_UDMSIteration'])
+#data['CuringRim_Width_Difference'] =  abs(data['Curing Width_UDMSIteration']) - abs(Rawdata['Rim Width_UDMSIteration'])
 
 
 
