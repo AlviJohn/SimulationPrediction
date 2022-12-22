@@ -13,5 +13,5 @@ docker tag simulation_prediction-docker:latest alvijohn/simulation_prediction-do
 docker push alvijohn/simulation_prediction-docker
 
 startup command for streamlit
-python -m streamlit run hello --server.port 8000 --server.address 0.0.0.0
-python -m streamlit run PredictionFunction_OD_SW_FP.py --server.port 8000 --server.address 0.0.0.0
+python3.9 -m streamlit run hello --server.port 8000 --server.address 0.0.0.0
+python3.9 -m streamlit run PredictionFunction_OD_SW_FP.py --server.port 8000 --server.address 0.0.0.0
