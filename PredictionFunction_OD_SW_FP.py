@@ -27,7 +27,7 @@ st.markdown(hide_default_format, unsafe_allow_html=True)
 
 
 
-#@st.cache(suppress_st_warning=True,allow_output_mutation=True)
+@st.cache(suppress_st_warning=True,allow_output_mutation=True)
 def loadmodel():
     model_SW = load_model('Final_SW_Model')
     model_OD = load_model('Final_OD_Model_V1')
