@@ -55,4 +55,4 @@ jobs:
           path: .
           
       - name: 'Deploy to Azure Web App'
-        run: streamlit run PredictionFunction_OD_SW_FP.py
+        run: python -m streamlit run PredictionFunction_OD_SW_FP.py
