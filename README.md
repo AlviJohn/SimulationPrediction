@@ -11,3 +11,5 @@ docker run -p 8501:8501 simulation_prediction-docker:latest
 docker tag simulation_prediction-docker:latest alvijohn/simulation_prediction-docker
 
 docker push alvijohn/simulation_prediction-docker
+
+python -m streamlit run PredictionFunction_OD_SW_FP.py --server.address 80
