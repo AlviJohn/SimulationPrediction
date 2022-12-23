@@ -1,9 +1,5 @@
 openpyxl==3.0.10
 pycaret==3.0.0rc2
-pandas==1.4.2
 evidently==0.1.59.dev3
-streamlit
+./streamlit-1.9.0-py2.py3-none-any.whl
 scikit-learn==1.1.1
-scikit-plot==0.3.7
-scipy==1.8.1
-seaborn==0.11.2
