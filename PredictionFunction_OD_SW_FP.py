@@ -4,8 +4,6 @@ import pandas as pd
 import numpy as np
 import pickle
 from PIL import Image
-from evidently.report import Report
-from evidently.metric_preset import DataDriftPreset
 import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Simulation Prediction Engine", page_icon="muscleman.jpg", layout="wide", initial_sidebar_state="auto")
