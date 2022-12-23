@@ -1,5 +1,4 @@
 openpyxl==3.0.10
 pycaret==3.0.0rc2
-evidently==0.1.59.dev3
 ./streamlit-1.9.0-py2.py3-none-any.whl
 scikit-learn==1.1.1
