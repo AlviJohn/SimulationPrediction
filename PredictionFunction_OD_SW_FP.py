@@ -1,3 +1,8 @@
+import collections.abc
+collections.Iterable = collections.abc.Iterable
+collections.Mapping = collections.abc.Mapping
+collections.MutableSet = collections.abc.MutableSet
+collections.MutableMapping = collections.abc.MutableMapping
 from pycaret.regression import *
 import streamlit as st
 import pandas as pd
@@ -5,6 +10,7 @@ import numpy as np
 import pickle
 from PIL import Image
 import streamlit.components.v1 as components
+
 
 st.set_page_config(page_title="Simulation Prediction Engine", page_icon="muscleman.jpg", layout="wide", initial_sidebar_state="auto")
 st.title('SW,OD and Footprint Models')
@@ -29,17 +35,11 @@ def loadmodel():
     Footprint_length80 = load_model('Footprint_length80_LGBM_V6')
     Footprint_Index = load_model('Footprint_lndex_V1')
 
-    #Footprint_length80_above225 = load_model('Footprint_length80_above225_V1')  
    
     return model_SW,model_OD,Footprint_width_RF,Footprint_length_RF,Footprint_length80,Footprint_Index
 
 model_SW,model_OD,Footprint_width_RF,Footprint_length_RF,Footprint_length80,Footprint_Index =  loadmodel()
 
-#Rawdata = pd.read_csv('RawData1.csv')
-##Correction In Belt_Angle Difference
-#Rawdata['Belt_Angle_Difference'] =  abs(Rawdata['RBELT1_cured_angle']) - abs(Rawdata['RBELT2_cured_angle'])
-##Correction In Belt_Angle Difference
-#data['CuringRim_Width_Difference'] =  abs(data['Curing Width_UDMSIteration']) - abs(Rawdata['Rim Width_UDMSIteration'])
 
 
 
@@ -132,54 +132,29 @@ if uploaded_file is not None:
 			features_df['OD Inflation']=df['OD Inflation']
 		except:
 			st.write("Error!-OD Model Failed")
-			
-		# try:
-		# 	df['FP width'] = round(predict_model(Footprint_width, features_df),2).Label
-		# except:
-		# 	st.write("Error!-FP Width Model Failed")
+
 		
 		try:
 			df['FP width'] = round(predict_model(Footprint_width_RF, features_df),2).Label
 		except:
 			st.write("Error!-FP Width Model Failed")
 
-		# try:
-		# 	df['FP_length']= round(predict_model(Footprint_length, features_df),2).Label
-		# except:
-		# 	st.write("Error!-FP Length Model Failed")
-		
+
 		try:
 			df['FP_length']= round(predict_model(Footprint_length_RF, features_df),2).Label
 			features_df['FootprintLength']=df['FP_length']
 		except:
 			st.write("Error!-FP Length Model Failed")
 
-		# try:
-		# 	df['FP_length80'] = round(predict_model(Footprint_length80, features_df),2).Label
-		# except:
-		# 	st.write("Error!-FP Length 80 Model Failed")
 
 		try:
-			#df['FP_len80_below225'] = round(predict_model(Footprint_length80_below225, features_df),2).Label
-			#df['FP_len80_above225'] = round(predict_model(Footprint_length80_above225, features_df),2).Label
-			#df['Cavity Section Width'] = features_df['Cavity Section Width']
-			#df.loc[df['Cavity Section Width'] <= 225, 'FP_length80'] = df['FP_len80_below225']
-			#df.loc[df['Cavity Section Width'] > 225, 'FP_length80'] = df['FP_len80_above225']
-			#df= df.drop(['FP_len80_below225', 'FP_len80_above225','Cavity Section Width'], axis=1)
+
 			df['FP_length80']= round(predict_model(Footprint_length80, features_df),2).Label
 		except:
 			st.write("Error!-FP Length 80 Model Failed")
-		
-		# try:
-		# 	df['FP_Index']= round(predict_model(Footprint_Index, features_df),2).Label
-		# except:
-		# 	df['FP_Index']= round(predict_model(Footprint_Index, features_df),2).Label
-		# 	st.write("Error!-FP Index Model Failed")
-
 
 
 		try:
-			#df['FP_length80'] = df['FP_Index'] * df['FP_length']
 
 			df['FP_Index'] = round(df['FP_length80']/df['FP_length'],2)
 		except:
